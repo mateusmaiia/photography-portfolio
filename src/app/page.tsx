@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className=" px-4 h-full bg-[url('/photograpy-bg.png')] bg-top bg-cover">
+    <div className="flex flex-col px-4 h-full bg-[url('/photograpy-bg.png')] bg-top bg-cover">
       <header className="text-white flex justify-between items-center h-[90px]">
         <div className="text-transparent">
           hm
@@ -17,7 +17,7 @@ export default function Home() {
           {/* </button> */}
         </Link>
       </header>
-      <main className=" text-white w-full ">
+      <main className="grow text-white w-full ">
         <div  className="flex justify-center ">
           <TabGroup>
             <TabList className="flex itemn gap-4">
@@ -33,7 +33,7 @@ export default function Home() {
           </TabGroup>
         </div> 
       </main>
-      <footer className="h-[60px]">
+      <footer className="text-white h-[60px]">
         palceholder footer
       </footer>
     </div>
