@@ -2,6 +2,21 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import Link from "next/link";
 
 export default function Home() {
+
+  const  tabs = [
+    {
+      id: '1',
+      title: "All",
+    },
+    {
+      id: '2',
+      title: "Ocean",
+    },
+    {
+      id: '3',
+      title: "Forest",
+    },
+  ]
   return (
     <div className="flex flex-col px-4 h-full bg-[url('/photograpy-bg.png')] bg-top bg-cover">
       <header className="text-white flex justify-between items-center h-[90px]">
@@ -20,10 +35,12 @@ export default function Home() {
       <main className="grow text-white w-full ">
         <div  className="flex justify-center ">
           <TabGroup>
-            <TabList className="flex itemn gap-4">
-              <Tab>All</Tab>
-              <Tab>Oceans</Tab>
-              <Tab>Forests</Tab>
+            <TabList className="flex itemn gap-12">
+              {tabs.map((tab) => (
+                <Tab key={tab.id} className="data-[selected]:text-white text-stone-600">
+                  {tab.title}
+                </Tab>
+              ))}
             </TabList>
             <TabPanels>
               <TabPanel>Content 1</TabPanel>
