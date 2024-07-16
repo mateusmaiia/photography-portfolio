@@ -18,9 +18,9 @@ export default function Home() {
     },
   ]
   return (
-    <div className="flex flex-col px-4 h-full bg-[url('/photograpy-bg.png')] bg-top bg-cover">
+    <div className="flex flex-col w-full px-4 h-full bg-[url('/photograpy-bg.png')]  bg-top bg-cover">
       <header className="text-white flex justify-between items-center h-[90px]">
-        <div className="text-transparent">
+        <div className="hidden">
           hm
         </div>
         <div>         
@@ -32,26 +32,28 @@ export default function Home() {
           {/* </button> */}
         </Link>
       </header>
-      <main className="grow text-white w-full ">
-        <div  className="flex justify-center ">
-          <TabGroup>
-            <TabList className="flex itemn gap-12">
+      <main className="grow text-white">
+        <div  className="flex justify-center items-center w-full h-full">
+          <TabGroup  className="h-full w-full flex items-center flex-col">
+            <TabList className="flex items-center gap-12 justify-center  w-full">
               {tabs.map((tab) => (
-                <Tab key={tab.id} className="data-[selected]:text-white text-stone-600">
+                <Tab key={tab.id} className="data-[selected]:text-white text-stone-600 p-2">
                   {tab.title}
                 </Tab>
               ))}
             </TabList>
-            <TabPanels>
-              <TabPanel>Content 1</TabPanel>
+            <TabPanels className="bg-blue-200 h-full w-full max-w-[900px] p-2 sm:p-4 my-6 ">
+              <TabPanel >Content 1</TabPanel>
               <TabPanel>Content 2</TabPanel>
               <TabPanel>Content 3</TabPanel>
             </TabPanels>
           </TabGroup>
         </div> 
       </main>
-      <footer className="text-white h-[60px]">
-        palceholder footer
+      <footer className="mt-10 text-white h-[60px] flex items-center justify-center">
+        <p>
+          Photography Portfolio
+        </p>
       </footer>
     </div>
  );
