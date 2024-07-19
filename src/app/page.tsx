@@ -58,7 +58,7 @@ export default function Home() {
   const lightBoxRef = useRef<TypeGallery | null>(null);
 
   useEffect(() => {
-    const url = 'http://localhost:1337/api/category-with-images?populate=*';
+    const url = 'https://strapi-photography-t64p.onrender.com/api/category-with-images?populate=*';
     const token = '67080b602e8c0562fcedc61a9c305f2dc08a2fc7c69f79837e2f3e5d4d08f0b138db9675f1228ce5334e2dcd070cf3efda7ad1e5b4448b65247bed4d7912f519b110403ced1121bbb1737899b7b24d642fe9be23bb64b8431328056356e7c650bc29d3bc7fcb580659048bd4ab8ad491e3e2c8736cc24d45f7697cad4cd66254';
 
     fetch(url, {
@@ -103,14 +103,14 @@ export default function Home() {
         <div className="flex justify-center items-center w-full h-full">
           <TabGroup className="h-full w-full flex items-center flex-col">
             <TabList className="flex items-center gap-12 justify-center w-full">
-              {categories.map((category) => (
+              {categories?.map((category) => (
                 <Tab key={category.id} className="uppercase text-lg data-[selected]:text-white text-stone-600 p-2">
                   {category.attributes.categoryImageName}
                 </Tab>
               ))}
             </TabList>
             <TabPanels className=" bg-opacity-80 h-full w-full max-w-[900px] p-2 sm:p-4 my-6 ">
-              {categories.map((category) => (
+              {categories?.map((category) => (
                 <TabPanel key={category.id}>
                   <Masonry className="flex gap-4" breakpointCols={3}>
                     {category.attributes.Images.data.map((image, idx) => {
