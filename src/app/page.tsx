@@ -93,16 +93,16 @@ export default function Home() {
       <Image 
         src={backgorunImage}
         alt="placeholder"
-        className="fixed left-0 top-0 z-0"
+        className="fixed left-0 top-0 z-0 h-full overflow-auto"
         priority
       />
       <div className="fixed top-0 left-0 z-10 from-stone-900 bg-gradient-to-t overflow-auto"></div>
 
-      <header className=" px-10 fixed w-full z-10 top-0 text-white flex justify-between items-center h-[90px]">
+      <header className=" px-10 fixed w-full z-30 top-0 text-white flex justify-between items-center h-[90px]">
         <div className="hidden">hm</div>
         <div className="uppercase text-lg font-medium">Bruna Brasil</div>
         <Link href="#" className="rounded-3xl bg-white text-stone-700 px-3 py-2 text-md hover:bg-opacity-90">
-          Get in touch
+          Marcar Ensaio
         </Link>
       </header>
       <main className="relative pt-[110px] z-20">
@@ -118,7 +118,7 @@ export default function Home() {
             <TabPanels className=" bg-opacity-80 h-full w-full max-w-[900px] p-2 sm:p-4 my-6 ">
               {categories?.map((category) => (
                 <TabPanel key={category.id}>
-                  <Masonry className="flex gap-4" breakpointCols={3}>
+                  <Masonry className="flex gap-4" breakpointCols={2}>
                     {category.attributes.Images.data.map((image, idx) => {
                       const imageUrl = `https://strapi-photography-t64p.onrender.com${image.attributes.url}`;
                       return (
