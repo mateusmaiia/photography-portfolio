@@ -118,7 +118,7 @@ export default function Home() {
             <TabPanels className=" bg-opacity-80 h-full w-full max-w-[900px] p-2 sm:p-4 my-6 ">
               {categories?.map((category) => (
                 <TabPanel key={category.id}>
-                  <Masonry className="flex gap-4" breakpointCols={3}>
+                  <Masonry className="flex gap-2 md:gap-4" breakpointCols={3}>
                     {category.attributes.Images.data.map((image, idx) => {
                       const imageUrl = `https://strapi-photography-t64p.onrender.com${image.attributes.url}`;
                       return (
@@ -126,7 +126,7 @@ export default function Home() {
                           src={imageUrl}
                           key={image.id}
                           alt={image.attributes.alternativeText || 'Imagem'}
-                          className="my-4 bg:hover:"
+                          className="my-2 md:my-4 bg:hover:"
                           width={image.attributes.width}
                           height={image.attributes.height}
                           onClick={() => {
