@@ -114,7 +114,7 @@ export default function Home() {
                 <TabPanel key={category.id}>
                   <Masonry className="flex gap-4" breakpointCols={3}>
                     {category.attributes.Images.data.map((image, idx) => {
-                      const imageUrl = `http://localhost:1337${image.attributes.url}`;
+                      const imageUrl = `https://strapi-photography-t64p.onrender.com${image.attributes.url}`;
                       return (
                         <Image 
                           src={imageUrl}
@@ -139,8 +139,8 @@ export default function Home() {
                       speed={500}
                       dynamic
                       dynamicEl={category.attributes.Images.data.map((image) => ({
-                        src: `http://localhost:1337${image.attributes.url}`,
-                        thumb: `http://localhost:1337${image.attributes.url}`
+                        src: `https://strapi-photography-t64p.onrender.com${image.attributes.url}`,
+                        thumb: `https://strapi-photography-t64p.onrender.com${image.attributes.url}`
                       }))}
                     />
                   </Masonry>
