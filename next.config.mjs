@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: ['strapi-photography-t64p.onrender.com', 'localhost'],
   },
 };
 
