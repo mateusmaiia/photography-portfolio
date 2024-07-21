@@ -13,6 +13,8 @@ import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
 import type { LightGallery as TypeGallery } from "lightgallery/lightgallery";
 import { useRef, useState, useEffect } from "react";
+import { Header } from "./components/Header";
+import Footer from "./components/Footer";
 
 type ImageData = {
   id: number;
@@ -98,13 +100,8 @@ export default function Home() {
       />
       <div className="fixed top-0 left-0 z-10 from-stone-900 bg-gradient-to-t overflow-auto"></div>
 
-      <header className=" px-10 fixed w-full z-30 top-0 text-white flex justify-between items-center h-[90px]">
-        <div className="hidden">hm</div>
-        <div className="uppercase text-lg font-medium">Bruna Brasil</div>
-        <Link href="#" className="rounded-3xl bg-white text-stone-700 px-3 py-2 text-md hover:bg-opacity-90">
-          Marcar Ensaio
-        </Link>
-      </header>
+      <Header />
+
       <main className="relative pt-[110px] z-20">
         <div className="flex justify-center items-center w-full h-full">
           <TabGroup className="h-full w-full flex items-center flex-col">
@@ -122,17 +119,22 @@ export default function Home() {
                     {category.attributes.Images.data.map((image, idx) => {
                       const imageUrl = `https://strapi-photography-t64p.onrender.com${image.attributes.url}`;
                       return (
-                        <Image 
-                          src={imageUrl}
-                          key={image.id}
-                          alt={image.attributes.alternativeText || 'Imagem'}
-                          className="my-2 md:my-4 bg:hover:"
-                          width={image.attributes.width}
-                          height={image.attributes.height}
-                          onClick={() => {
-                            lightBoxRef.current?.openGallery(idx);
-                          }}
-                        />
+                       <div key={image.id} className="relative">
+                           <Image 
+                              src={imageUrl}
+                              
+                              alt={image.attributes.alternativeText || 'Imagem'}
+                              className="relative my-2 md:my-4"
+                              width={image.attributes.width}
+                              height={image.attributes.height}
+                            
+                            />
+                          <div className="absolute bg-transparent hover:bg-stone-900 hover:bg-opacity-10 h-full w-full inset-0 cursor-pointer"
+                            onClick={() => {
+                              lightBoxRef.current?.openGallery(idx);
+                            }}
+                          />
+                       </div>
                       );
                     })}
                     <LightGallery
@@ -156,9 +158,7 @@ export default function Home() {
           </TabGroup>
         </div> 
       </main>
-      <footer className="relative mt-10 text-white h-[90px] text-lg uppercase font-medium flex items-center justify-center">
-        <p>Photography Portfolio</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
