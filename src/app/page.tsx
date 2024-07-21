@@ -60,7 +60,8 @@ export default function Home() {
   useEffect(() => {
     const url = 'https://strapi-photography-t64p.onrender.com/api/category-with-images?populate=*';
     const token = process.env.NEXT_PUBLIC_STRAPI_TOKEN;
-    // const token = process.env.NEXT_PUBLIC_STRAPI_TOKEN;
+
+    console.log('Token:', token); 
 
     fetch(url, {
       method: 'GET',
