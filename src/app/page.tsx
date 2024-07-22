@@ -87,7 +87,17 @@ export default function Home() {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="w-full h-full flex items-center justify-center ">
+      <div className="text-center text-bold text-zinc-500 h-full flex items-center justify-center z-50">
+        Carregando site da gostosa...
+      </div>
+      <Image 
+        src={backgorunImage}
+        alt="placeholder"
+        className="fixed left-0 top-0 z-0 h-full overflow-auto w-full"
+        priority
+      />
+    </div>;
   }
 
   return (
@@ -95,10 +105,10 @@ export default function Home() {
       <Image 
         src={backgorunImage}
         alt="placeholder"
-        className="fixed left-0 top-0 z-0 h-full overflow-auto"
+        className="fixed left-0 top-0 z-0 h-full overflow-auto w-full"
         priority
       />
-      <div className="fixed top-0 left-0 z-10 from-stone-900 bg-gradient-to-t overflow-auto"></div>
+      <div className="fixed top-0 w-full bg-center bg-cover left-0 z-10 from-stone-900 bg-gradient-to-t overflow-auto"></div>
 
       <Header />
 
@@ -115,27 +125,28 @@ export default function Home() {
             <TabPanels className=" bg-opacity-80 h-full w-full max-w-[900px] p-2 sm:p-4 my-6 ">
               {categories?.map((category) => (
                 <TabPanel key={category.id}>
-                  <Masonry className="flex gap-2 md:gap-4" breakpointCols={3}>
+                  <Masonry className="flex gap-2 md:gap-2" breakpointCols={3}>
                     {category.attributes.Images.data.map((image, idx) => {
                       const imageUrl = `https://strapi-photography-t64p.onrender.com${image.attributes.url}`;
+                      console.log('Image URL:', imageUrl); // Verifique se a URL está correta
                       return (
-                       <div key={image.id} className="relative">
-                           <Image 
-                              src={imageUrl}
-                              
-                              alt={image.attributes.alternativeText || 'Imagem'}
-                              className="relative my-2 md:my-4"
-                              width={image.attributes.width}
-                              height={image.attributes.height}
-                            
-                            />
-                          <div className="absolute bg-transparent hover:bg-stone-900 hover:bg-opacity-10 h-full w-full inset-0 cursor-pointer"
-                            onClick={() => {
-                              lightBoxRef.current?.openGallery(idx);
-                            }}
-                          />
-                       </div>
-                      );
+                        <div key={image.id} className="relative">
+                            <Image 
+                               src={imageUrl}
+                               
+                               alt={image.attributes.alternativeText || 'Imagem'}
+                               className="relative my-2 md:my-2"
+                               width={image.attributes.width}
+                               height={image.attributes.height}
+                             
+                             />
+                           <div className="absolute bg-transparent hover:bg-stone-900 hover:bg-opacity-10 h-full w-full inset-0 cursor-pointer"
+                             onClick={() => {
+                               lightBoxRef.current?.openGallery(idx);
+                             }}
+                           />
+                        </div>
+                       );
                     })}
                     <LightGallery
                       onInit={(ref) => {
