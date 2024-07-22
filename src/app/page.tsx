@@ -88,7 +88,7 @@ export default function Home() {
 
   if (isLoading) {
     return <div className="w-full h-full flex items-center justify-center ">
-      <div className="text-center text-bold text-zinc-500 h-full flex items-center justify-center z-50">
+      <div className="text-center text-2xl text-bold text-gray-300 h-full flex items-center justify-center z-50">
         Carregando site da gostosa...
       </div>
       <Image 
